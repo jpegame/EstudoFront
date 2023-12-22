@@ -31,3 +31,17 @@ header {
     padding: 7px;
     cursor: pointer;
   }
+
+  button {
+    background-color: #3498db; /* Button background color */
+    color: #fff; /* Text color */
+    font-size: 18px; /* Font size */
+    font-weight: bold; /* Font weight */
+    padding: 10px 20px; /* Padding */
+    border: none; /* Remove border */
+    cursor: pointer; /* Add cursor pointer on hover */
+    display: inline-block; /* Display as inline block to adjust width */
+    text-align: center; /* Center-align text */
+    text-decoration: none; /* Remove underline */
+    border-radius: 5px; /* Optional: Add border-radius for rounded corners */
+  }

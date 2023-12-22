@@ -1,0 +1,44 @@
+/* Add this CSS to your stylesheet or in a style tag in your React component */
+
+.torneio {
+    margin: 15px;
+}
+
+.gridtorneio {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.gridtorneio div {
+    background-color: #0078c9;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.BotaoLinha {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.BotaoLinha button{
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.8);
+    background: #40a5e9;
+    padding: 15px 40px;
+    border-radius: 4px;
+    font-weight: normal;
+    text-transform: uppercase;
+    transition: all 0.2s ease-in-out;
+}
+
+
+.BotaoLinha button:hover{
+    color: rgba(255, 255, 255, 1);
+    box-shadow: 0 5px 15px rgba(79, 150, 255, 0.712);
+  }
+
+.insertButton {
+    margin-bottom: 10px;
+}

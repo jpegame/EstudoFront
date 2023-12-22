@@ -1,0 +1,45 @@
+
+  /* Apply styles to the container div */
+  .login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    height: 100vh;
+  }
+  
+  /* Style for the h2 element (Login) */
+  h2 {
+    color: #ffffff; /* Text color */
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  /* Style for the input elements */
+  input {
+    width: 60%;
+    padding: 12px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc; /* Border color */
+    border-radius: 4px;
+  }
+  
+  /* Style for the button element */
+  .buttonlogin {
+    width: 60%;
+    padding: 12px;
+    background-color: #3498db; /* Button background color */
+    color: #fff; /* Text color */
+    border: none;
+    cursor: pointer;
+    box-sizing: border-box;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  /* Hover effect for the button */
+  .buttonlogin:hover {
+    background-color: #2980b9; /* Change background color on hover */
+  }
+  

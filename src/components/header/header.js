@@ -22,10 +22,12 @@ function Header() {
 
 	return (
         <header>
-            <h1>Pokedex</h1>
+            <a href="/" className="logo">Pokedex</a>
             <nav>
-                <a href="/">Página principal</a>
-                <button onClick={Logout}>Logout</button>
+              <a href="/">Home</a>
+              <a href='/torneio'>Torneio</a>
+              <a href='/torneio'>Times</a>
+              <button onClick={Logout}>Logout</button>
             </nav>
         </header>
 	);

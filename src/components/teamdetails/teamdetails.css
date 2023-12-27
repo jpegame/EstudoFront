@@ -1,0 +1,35 @@
+/* TeamDetails.css */
+
+.team-details {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 75vw;
+  }
+  
+  /* .pokemon {
+
+  } */
+
+  .team-details-header {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .padrao_tipo {
+    margin: 5px;
+    padding: 15px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    color:white;
+    border-radius: 15px;
+  }
+
+  .team-details .gridpokemon .pokemon img:hover{
+    cursor: default;
+  }
+  

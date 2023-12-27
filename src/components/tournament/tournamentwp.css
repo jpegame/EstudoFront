@@ -1,0 +1,37 @@
+  .tournament-info {
+    margin-top: -15px !important;
+    background-color: #0289e2;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .teams-container {
+    margin: 10px;
+    width: 20vw;
+    color: white;
+    font-weight: bolder;
+    overflow-y: auto;
+    display: grid;
+    grid-gap: 10px;
+  }
+  
+  .team {
+    cursor: pointer;
+    padding: 20px;
+    background-color: #248aff;
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: white;
+    margin-bottom: 10px;
+  }
+  
+  .team:hover {
+    background-color: #6bb0ff;
+  }
+  
+  #team-details {
+    flex-grow: 1;
+    padding: 20px;
+  }
+  

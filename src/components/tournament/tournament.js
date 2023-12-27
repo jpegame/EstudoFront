@@ -15,7 +15,6 @@ function Tournament() {
 		fetch("/tournament")
 		  .then((res) => res.json())
 		  .then((data) => {
-            console.log(data)
 			setdata(data);
 		  })
 		  .catch((error) => {
@@ -24,13 +23,24 @@ function Tournament() {
 	  }, []);
 
     const AbrirTorneio = (id,mode) =>{
-		// window.location.href = '/pokemon?pokemonid=' + id
+		window.location.href = `/torneiowp?mode=${mode}&tournamentid=${id}`
+	}
+
+	const DeleteTorneio = (id) =>{
+		fetch("/tournament/"+ id,{
+			method: 'DELETE'
+		})
+		  .then((res) => window.location.reload())
+		  .catch((error) => {
+			console.error("Error deleting data:", error);
+		});
+
 	}
 
 	return (
 		<div className="torneio">
 			<UserLogged/>
-            <button class="insertButton">Inserir</button>
+            <button onClick={() => AbrirTorneio(0, 'INS')} className="insertButton">Inserir</button>
 
 			<div className="gridtorneio">
 				{data.map((torneio) => (
@@ -40,7 +50,7 @@ function Tournament() {
                     <div className="BotaoLinha">
                         <button onClick={() => AbrirTorneio(torneio.id, 'DSP')}>Visualizar</button>
                         <button onClick={() => AbrirTorneio(torneio.id, 'UPD')}>Modificar</button>
-                        <button >Excluir</button>
+                        <button type="button" onClick={() => DeleteTorneio(torneio.id)}>Excluir</button>
                     </div>
 
                   </div>

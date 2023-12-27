@@ -1,47 +1,69 @@
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #801f1f;
-    color: white;
-    padding: 10px;
-  }
-  
-  h1 {
-    text-shadow:
-      1px  1px 2px black,
-      1px -1px 2px black,
-     -1px  1px 2px black,
-     -1px -1px 2px black;
-  }
+  overflow: hidden;
+  padding: 20px 10px;
+  background-color: #801f1f;
+}
 
-  nav {
-    color: white;
-  }
-  
-  nav a {
-    padding-right: 20px;
-    color: white;
-    font-size: larger;
-    text-decoration: none;
-  }
-  
-  nav a:hover {
-    background-color: #ff7070;
-    padding: 7px;
-    cursor: pointer;
-  }
+header a{
+  color: white;
+  float: left;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  line-height: 25px;
+  border-radius: 4px;
+  font-weight: bold;
+}
 
-  button {
-    background-color: #3498db; /* Button background color */
-    color: #fff; /* Text color */
-    font-size: 18px; /* Font size */
-    font-weight: bold; /* Font weight */
-    padding: 10px 20px; /* Padding */
-    border: none; /* Remove border */
-    cursor: pointer; /* Add cursor pointer on hover */
-    display: inline-block; /* Display as inline block to adjust width */
-    text-align: center; /* Center-align text */
-    text-decoration: none; /* Remove underline */
-    border-radius: 5px; /* Optional: Add border-radius for rounded corners */
-  }
+.logo {
+  font-size: 40px;
+  text-shadow:
+  1px 1px 2px black,
+  1px -1px 2px black,
+  -1px 1px 2px black,
+  -1px -1px 2px black;
+}
+
+nav {
+  float: right;
+  color: white;
+}
+
+nav a {
+  font-size: 20px;
+}
+
+nav a:hover {
+  background-color: #ff7070;
+  cursor: pointer;
+}
+
+
+button {
+  background-color: #3498db;
+  /* Button background color */
+  color: #fff;
+  /* Text color */
+  font-size: 18px;
+  /* Font size */
+  font-weight: bold;
+  /* Font weight */
+  padding: 10px 20px;
+  /* Padding */
+  border: none;
+  /* Remove border */
+  cursor: pointer;
+  /* Add cursor pointer on hover */
+  display: inline-block;
+  /* Display as inline block to adjust width */
+  text-align: center;
+  /* Center-align text */
+  text-decoration: none;
+  /* Remove underline */
+  border-radius: 5px;
+  /* Optional: Add border-radius for rounded corners */
+}
+
+button:hover {
+  background-color: #55b0ec;
+}

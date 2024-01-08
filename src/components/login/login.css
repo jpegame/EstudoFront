@@ -6,6 +6,8 @@
     align-items: center;
     /* justify-content: center; */
     height: 100vh;
+    width: 50%;
+    margin-left: 25%;
   }
   
   /* Style for the h2 element (Login) */
@@ -17,7 +19,7 @@
   
   /* Style for the input elements */
   input {
-    width: 60%;
+    width: 100%;
     padding: 12px;
     margin: 8px 0;
     box-sizing: border-box;
@@ -27,7 +29,7 @@
   
   /* Style for the button element */
   .buttonlogin {
-    width: 60%;
+    width: 100%;
     padding: 12px;
     background-color: #3498db; /* Button background color */
     color: #fff; /* Text color */
@@ -43,3 +45,7 @@
     background-color: #2980b9; /* Change background color on hover */
   }
   
+  a {
+    color: #effaff;
+    font-size: large;
+  }

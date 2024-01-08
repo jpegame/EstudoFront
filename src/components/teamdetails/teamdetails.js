@@ -5,6 +5,8 @@ import './teamdetails.css'; // Import the CSS file
 
 const TeamDetails = ({ teamDetails, position, onClose }) => {
 
+    console.log(teamDetails)
+
     const typeColors = {
         Normal: ['#A8A878'],
         Fire: ['#FF7F50', '#EE8130'],

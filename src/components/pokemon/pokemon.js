@@ -12,6 +12,11 @@ function PokemonPage(){
       type:[]
     });
 
+    const rarityColors = {
+      M: 'linear-gradient(180deg, #ff0055, #cc00ff)',
+      L: 'linear-gradient(180deg, #cc00ff, rgb(106, 180, 245))',
+    };
+
     const location = useLocation();
     var pokemonid = new URLSearchParams(location.search).get('pokemonid');
   
@@ -30,7 +35,7 @@ function PokemonPage(){
       <div>
         <UserLogged/>
         <div className="infopokemon">
-          <div key={data.id} className="pokemon">
+          <div key={data.id} className="pokemon" style={{ background: rarityColors[data.rarity] || '' }}>
             <img src={data.image} alt={data.name} />
             <span>{data.name}</span>
           </div>

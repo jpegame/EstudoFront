@@ -1,0 +1,15 @@
+.gridteam{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.gridteam div {
+    background-color: #009463;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.a{
+    background-color: #07b874;
+}

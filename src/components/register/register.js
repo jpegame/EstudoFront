@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
-import './login.css';
 
-const Login = () => {
+const Register = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
   const handleLogin = async () => {
     try {
-      const response = await fetch('/login', {
+      const response = await fetch('/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -19,18 +18,18 @@ const Login = () => {
       const data = await response.json();
 
       if (response.ok) {
-        window.location.replace('/');
+        window.location.replace('/login');
       } else {
-        console.error('Login failed:', data.message);
+        console.error('Register failed:', data.message);
       }
     } catch (error) {
-      console.error('Error during login:', error.message);
+      console.error('Error during register:', error.message);
     }
   };
 
   return (
     <div className='login'>
-      <h2>Login</h2>
+      <h2>Criar conta</h2>
       <input
         type="text"
         placeholder="Nome do usuário"
@@ -43,10 +42,10 @@ const Login = () => {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
-      <button className='buttonlogin' onClick={handleLogin}>Login</button>
-      <a href='/register'>Não possui uma conta? Criar conta</a>
+      <button className='buttonlogin' onClick={handleLogin}>Registrar</button>
+      <a href='/login'>Já possui uma conta? Fazer login</a>
     </div>
   );
 };
 
-export default Login;
+export default Register;

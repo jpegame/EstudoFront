@@ -10,6 +10,7 @@ function Battle() {
   const [pokemonStats, setPokemonStats] = useState([{
     "id": 0,
     "attack": 0,
+    "name":'',
     "defense": 0,
     "hp": 0,
     "moves": [
@@ -26,6 +27,7 @@ function Battle() {
     "attack": 0,
     "defense": 0,
     "hp": 0,
+    "name":'',
     "moves": [
       {
         "name": "",
@@ -35,7 +37,7 @@ function Battle() {
       }
     ]
   }]);
-  const [showCaption, setshowCaption] = useState(false);
+  const [showCaption, setshowCaption] = useState(null);
   const [CurrentHP, setCurrentHP] = useState(null)
   const [CurrentEnemyHP, setCurrentEnemyHP] = useState(null)
   const [dataFetched, setDataFetched] = useState(false);
@@ -117,11 +119,11 @@ function Battle() {
   }, [salaid, CurrentHP, CurrentEnemyHP, userData]);
 
   const HandleAttack = (item) => {
-    setshowCaption(true)
+    setshowCaption(item.name)
 
     const timeoutId = setTimeout(() => {
       socketRef.current.emit('take_damage', { salaid: salaid, userid: userData.userid, damage: item.power });
-      setshowCaption(false)
+      setshowCaption(null)
     }, 2000);
     return () => clearTimeout(timeoutId);
   }
@@ -223,7 +225,7 @@ function Battle() {
         <UserLogged />
         {dataFetched ? (<RenderedItems />) : (<h1>Carregando página</h1>)}
       </div>
-      {showCaption ? (<div></div>) :(<RenderMoves />)}
+      {showCaption ? (<div className="pokemonStats Attack" ><h1 className="AttackUsed">{pokemonStats.name} used {showCaption}!</h1></div>) :(<RenderMoves />)}
     </div>
   );
 };

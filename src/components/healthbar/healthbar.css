@@ -2,14 +2,17 @@
 .health-bar-container {
     width: 100%;
     height: 20px;
+    background-color:red;
     border: 1px solid #ccc;
     overflow: hidden;
   }
   
   .health-bar {
+    margin-left: 0 !important;
+    margin-right: auto !important;
     height: 100%;
     background-color: #4caf50; /* Green color */
-    transition: margin-left 0.5s ease-in-out;
+    /* transition: margin-left 0.5s ease-in-out; */
     width: 100%;
   }
   

@@ -13,6 +13,7 @@
     height: 100%;
     background-color: #4caf50; /* Green color */
     /* transition: margin-left 0.5s ease-in-out; */
+    transform-origin: left center;
     width: 100%;
   }
   

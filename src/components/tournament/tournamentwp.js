@@ -9,21 +9,39 @@ const TournamentWP = () => {
     const [data, setdata] = useState({
         id: 0,
         name: "",
-        date: "",
-        user:"",
-        teams: [
+        start_date: "",
+        end_date: "",
+        user: "",
+        matches: [
             {
-                id: 0,
-                name: "",
-                pokemons: [
-                    {
-                        id: 0,
-                        name: "",
-                        image: "",
-                        rarity: "",
-                        type: [""]
-                    }
-                ]
+                level: 0,
+                status: "",
+                team1: {
+                    id: 0,
+                    name: "",
+                    pokemons: [
+                        {
+                            id: 0,
+                            name: "",
+                            image: "",
+                            rarity: "",
+                            type: [""]
+                        }
+                    ]
+                },
+                team2: {
+                    id: 0,
+                    name: "",
+                    pokemons: [
+                        {
+                            id: 0,
+                            name: "",
+                            image: "",
+                            rarity: "",
+                            type: [""]
+                        }
+                    ]
+                }
             }
         ]
     });
@@ -56,6 +74,7 @@ const TournamentWP = () => {
                 .then((res) => res.json())
                 .then((data) => {
                     setdata(data);
+                    console.log(data)
                 })
                 .catch((error) => {
                     console.error("Error fetching data:", error);
@@ -69,7 +88,7 @@ const TournamentWP = () => {
             return (
                 <div className="torneio">
                     <UserLogged />
-                    <WcTournament TournamentData={data}/>
+                    <WcTournament TournamentData={data} />
                 </div>
             );
         case 'DSP':
@@ -79,25 +98,34 @@ const TournamentWP = () => {
                     <UserLogged />
                     <div className="tournament-info" id="tournament-info">
                         <h2 id="tournament-name">{data.name}</h2>
-                        <h2 id="tournament-date">{new Date(data.date).toLocaleDateString()}</h2>
+                        <h2 id="tournament-date">Início: {new Date(data.start_date).toLocaleDateString()}</h2>
+                        <h2 id="tournament-date">Fim: {new Date(data.end_date).toLocaleDateString()}</h2>
                     </div>
-                    <div className="teams-container">
-                        {data.teams.map((team) => (
-                            <div className='team' key={team.id} onClick={(event) => handleClick(event, team)}>
-                                {team.name}
-                            </div>
-                        ))}
-                        {selectedTeam && (
-                            <TeamDetails position={position} teamDetails={selectedTeam} onClose={handleTeamDetailsClose} />
-                        )}
-                    </div>
+                    {data.matches.map((match) => (
+                        <div className="teams-container">
+                            <h1>{match.status}</h1>
+                            {match.team1.id && (
+                                <div className='team' onClick={(event) => handleClick(event, match.team1)}>
+                                    {match.team1.name}
+                                </div>
+                            )}
+                            {match.team2.id && (
+                                <div className='team' onClick={(event) => handleClick(event, match.team2)}>
+                                    {match.team2.name}
+                                </div>
+                            )}
+                        </div>
+                    ))}
+                    {selectedTeam && (
+                        <TeamDetails position={position} teamDetails={selectedTeam} onClose={handleTeamDetailsClose} />
+                    )}
                 </div>
             );
         case 'UPD':
             return (
                 <div className="torneio">
                     <UserLogged />
-                    <WcTournament TournamentData={data}/>
+                    <WcTournament TournamentData={data} />
                 </div>
             );
         default:

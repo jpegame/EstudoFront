@@ -8,7 +8,8 @@ function Tournament() {
     const [data, setdata] = useState([{
 		id: 0,
 		name: "",
-		date: ""
+		start_date: "",
+		end_date:""
 	}]);
 
 	useEffect(() => {
@@ -46,7 +47,8 @@ function Tournament() {
 				{data.map((torneio) => (
 					<div key={torneio.id}>
                     <h2>{torneio.name}</h2>
-                    <h2>{new Date(torneio.date).toLocaleDateString() /*format(new Date(torneio.date), 'MMMM dd, yyyy HH:mm:ss')*/}</h2>
+                    <h2>Início: {new Date(torneio.start_date).toLocaleDateString()}</h2>
+					<h2>Fim: {new Date(torneio.end_date).toLocaleDateString()}</h2>
                     <div className="BotaoLinha">
                         <button onClick={() => AbrirTorneio(torneio.id, 'DSP')}>Visualizar</button>
                         <button onClick={() => AbrirTorneio(torneio.id, 'UPD')}>Modificar</button>

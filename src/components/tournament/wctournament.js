@@ -8,7 +8,8 @@ const MyForm = ({ TournamentData }) => {
   const [formData, setFormData] = useState({
     id: 0,
     name: '',
-    date: '',
+    start_date: '',
+    end_date: '',
     teams: [],
   });
 
@@ -23,25 +24,35 @@ const MyForm = ({ TournamentData }) => {
 
         setOptions(formattedOptions);
         const preSelectedOptions = formattedOptions.filter((option) =>
-            formData.teams.some(item => item.id === option.value)
+            formData.teams.some(item => item === option.value)
         );
-
+        console.log('preSelected',preSelectedOptions)
         setSelectedOptions(preSelectedOptions);
       })
       .catch((error) => console.error('Error fetching options:', error));
   }, [formData]);
 
   useEffect(() => {
-    setFormData(TournamentData);
+    const transformData = {
+      id: TournamentData.id,
+      name: TournamentData.name,
+      start_date: TournamentData.start_date,
+      end_date: TournamentData.end_date,
+      teams: TournamentData.matches.flatMap((match) => [
+        match.team1.id,
+        match.team2.id
+      ]),
+    };
+
+    setFormData(transformData);
     }, [TournamentData]);
 
   const handleChange = (selectedValues) => {
     setSelectedOptions(selectedValues);
-
-    let formattedselectedValues = selectedValues.map((item) =>({
-        id: item.value
-    }))
-
+    let formattedselectedValues = selectedValues.map((item) =>(
+        item.value
+    ))
+    console.log(formattedselectedValues)
     setFormData({
       ...formData,
       teams: formattedselectedValues,
@@ -50,6 +61,7 @@ const MyForm = ({ TournamentData }) => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
+    console.log(name, value)
     setFormData({
       ...formData,
       [name]: value,
@@ -58,6 +70,7 @@ const MyForm = ({ TournamentData }) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    console.log(formData)
     try {
         const response = await fetch('/tournament', {
           method: 'POST',
@@ -93,16 +106,26 @@ const MyForm = ({ TournamentData }) => {
           name="name"
           value={formData.name}
           onChange={handleInputChange}
-          autocomplete="off"
+          autoComplete="off"
         />
       </div>
 
       <div>
-        <label>Data:</label>
+        <label>Data de início:</label>
         <input
           type="date"
-          name="date"
-          value={formData.date ? new Date(formData.date).toISOString().split('T')[0] : ''}
+          name="start_date"
+          value={formData.start_date ? new Date(formData.start_date).toISOString().split('T')[0] : ''}
+          onChange={handleInputChange}
+        />
+      </div>
+
+      <div>
+        <label>Data de término:</label>
+        <input
+          type="date"
+          name="end_date"
+          value={formData.end_date ? new Date(formData.end_date).toISOString().split('T')[0] : ''}
           onChange={handleInputChange}
         />
       </div>

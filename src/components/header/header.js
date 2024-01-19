@@ -27,6 +27,7 @@ function Header() {
               <a href="/">Home</a>
               <a href='/torneio'>Torneio</a>
               <a href='/team'>Times</a>
+              <a href='/partidas'>Partidas</a>
               <button onClick={Logout}>Logout</button>
             </nav>
         </header>

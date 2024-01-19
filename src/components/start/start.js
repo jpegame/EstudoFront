@@ -16,6 +16,7 @@ const EventStarter = () => {
         rarity: '',
         type: []
     });
+    const [buttonClicked, setButtonClicked] = useState(false);
     const location = useLocation();
     const salaid = new URLSearchParams(location.search).get('s');
     const typeColors = {
@@ -91,6 +92,7 @@ const EventStarter = () => {
     }
 
     const HandleConfirm = () => {
+        setButtonClicked(true)
         socketRef.current.emit('pokemon_selected', {salaid: salaid, pokemon: PokemonSelected, userid: UserData.userid});
     }
 
@@ -115,7 +117,10 @@ const EventStarter = () => {
                             <span>{pokemon.name}</span>
                         </div>
                     ))}
-                    <button onClick={() => HandleConfirm()}>Confimar</button>
+                    <button onClick={() => HandleConfirm()}
+                    style={{
+                        backgroundColor: buttonClicked ? '#03fc35' : '#3498db'
+                    }}>Confimar</button>
                 </div>
             </div>
             )}

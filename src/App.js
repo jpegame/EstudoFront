@@ -14,6 +14,7 @@ import Team from './components/team/team';
 import TeamWP from './components/team/teamwp';
 import EventStarter from './components/start/start';
 import Battle from './components/battle/battle';
+import Partida from './components/partidas/partida';
 
 const App = () => {
   return (
@@ -30,6 +31,7 @@ const App = () => {
         <Route path="/teamwp" element={<TeamWP />} />
         <Route path="/start" element={<EventStarter />} />
         <Route path="/battle" element={<Battle />} />
+        <Route path='/partidas' element={<Partida />} />
       </Routes>
     </Router>
   );
